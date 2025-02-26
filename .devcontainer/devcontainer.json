@@ -1,0 +1,21 @@
+{
+  "name": "todo",
+  "dockerComposeFile": "./docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "settings": {
+      "terminal.integrated.defaultProfile.linux": "zsh"
+    },
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "prisma.prisma"
+      ]
+    }
+  },
+  "postCreateCommand": "yarn install && npx prisma migrate dev",
+  "remoteUser": "root"
+}
