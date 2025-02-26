@@ -1,7 +1,8 @@
 {
   "name": "todo",
-  "dockerComposeFile": "./docker-compose.yml",
-  "service": "app",
+  // "dockerComposeFile": "./docker-compose.yml",
+  "dockerFile": "Dockerfile",
+  "appPort": [3000],
   "workspaceFolder": "/workspace",
   "customizations": {
     "settings": {
@@ -16,6 +17,6 @@
       ]
     }
   },
-  "postCreateCommand": "yarn install && npx prisma migrate dev",
-  "remoteUser": "root"
+  "postCreateCommand": "yarn install "
+  // "remoteUser": "vscode"
 }

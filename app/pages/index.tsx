@@ -1,39 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 type Task = {
   id: number;
   text: string;
-  completed: boolean;
 };
 
 export default function Home() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [taskText, setTaskText] = useState("");
 
-  useEffect(() => {
-    fetch("/api/tasks")
-      .then(res => res.json())
-      .then(data => setTasks(data));
-  }, []);
-
-  const addTask = async () => {
+  const addTask = () => {
     if (!taskText.trim()) return;
-    const res = await fetch("/api/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: taskText }),
-    });
-    const newTask = await res.json();
-    setTasks([...tasks, newTask]);
+    setTasks([...tasks, { id: Date.now(), text: taskText }]);
     setTaskText("");
   };
 
-  const removeTask = async (id: number) => {
-    await fetch("/api/tasks", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id }),
-    });
+  const removeTask = (id: number) => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
