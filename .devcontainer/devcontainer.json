@@ -1,13 +1,14 @@
 {
-  "name": "todo",
+  "name": "todo-dev",
+  // "service": "app",
   // "dockerComposeFile": "./docker-compose.yml",
   "dockerFile": "Dockerfile",
   "appPort": [3000],
-  "workspaceFolder": "/workspace",
+  "workspaceFolder": "/app",
   "customizations": {
-    "settings": {
-      "terminal.integrated.defaultProfile.linux": "zsh"
-    },
+    // "settings": {
+    //   "terminal.integrated.defaultProfile.linux": "zsh"
+    // },
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
@@ -17,6 +18,6 @@
       ]
     }
   },
-  "postCreateCommand": "yarn install "
+  "postCreateCommand": "npx create vite@latest vite-react-app -- --template react-ts"
   // "remoteUser": "vscode"
 }

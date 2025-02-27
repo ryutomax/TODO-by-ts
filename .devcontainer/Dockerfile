@@ -1,16 +1,23 @@
-# Node.jsの公式イメージを使用
-FROM node:18
+# ベースイメージとしてNode.jsを使用
+FROM node:22-alpine
 
 # 作業ディレクトリを設定
-WORKDIR /workspace
+WORKDIR /app
 
-# 必要なツールをインストール
-RUN apt-get update && apt-get install -y \
-    zsh \
-    && rm -rf /var/lib/apt/lists/*
+RUN npm create vite@latest vite-react-app -- --template react-ts
 
-# Node.jsのグローバルパスを設定
-ENV PATH="/workspace/node_modules/.bin:$PATH"
+# # 必要なファイルをコンテナにコピー
+# COPY package*.json ./
 
-# デフォルトのシェルをzshに変更
-SHELL ["/bin/zsh", "-c"]
+WORKDIR /app/vite-react-app
+# # 依存関係をインストール
+RUN npm install
+
+# ソースコードをコピー
+COPY . .
+
+# Viteサーバーを起動するポートを公開
+EXPOSE 5173
+
+# 開発サーバーを起動
+CMD ["npm", "run", "dev"]
