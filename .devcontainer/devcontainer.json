@@ -3,7 +3,7 @@
   // "service": "app",
   // "dockerComposeFile": "./docker-compose.yml",
   "dockerFile": "Dockerfile",
-  "appPort": [3000],
+  "appPort": [5173],
   "workspaceFolder": "/app",
   "customizations": {
     // "settings": {
@@ -17,7 +17,5 @@
         "prisma.prisma"
       ]
     }
-  },
-  "postCreateCommand": "npx create vite@latest vite-react-app -- --template react-ts"
-  // "remoteUser": "vscode"
+  }
 }
