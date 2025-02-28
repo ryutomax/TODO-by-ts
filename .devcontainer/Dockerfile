@@ -18,5 +18,8 @@ RUN npm install
 # Viteサーバーを起動するポートを公開
 EXPOSE 5173
 
+RUN chown -R node:node /app/vite-react-app
+
+USER node
 # 開発サーバーを起動
 CMD ["npm", "run", "dev"]

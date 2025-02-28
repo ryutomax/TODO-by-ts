@@ -2,22 +2,18 @@
   "name": "todo-dev",
   "service": "app",
   "dockerComposeFile": "./docker-compose.yml",
-  // "dockerFile": "Dockerfile",
-  "appPort": [5173],
   "workspaceFolder": "/app",
+  "forwardPorts": [5173],
   "customizations": {
-    // "settings": {
-    //   "terminal.integrated.defaultProfile.linux": "zsh"
-    // },
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
         "ms-vscode.vscode-typescript-next",
-        "prisma.prisma"
+        "prisma.prisma",
+        "ms-azuretools.vscode-docker"
       ]
     }
-  }
-  // "overrideCommand": false,
-  // "command": ["sleep", "infinity"]
+  },
+  "postCreateCommand": "cd vite-react-app/ && npm run dev"
 }
