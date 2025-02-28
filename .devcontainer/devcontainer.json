@@ -1,8 +1,8 @@
 {
   "name": "todo-dev",
-  // "service": "app",
-  // "dockerComposeFile": "./docker-compose.yml",
-  "dockerFile": "Dockerfile",
+  "service": "app",
+  "dockerComposeFile": "./docker-compose.yml",
+  // "dockerFile": "Dockerfile",
   "appPort": [5173],
   "workspaceFolder": "/app",
   "customizations": {
@@ -18,4 +18,6 @@
       ]
     }
   }
+  // "overrideCommand": false,
+  // "command": ["sleep", "infinity"]
 }
